@@ -1,0 +1,80 @@
+ALGORITHM leapyearchecker
+VAR
+    x : INTEGER
+BEGIN
+    write("Give a year to check : ")
+    read(x)
+
+    IF (x % 4 = 0) AND (x % 100 != 0) OR (x % 400 = 0) THEN
+        write("The year ", x, " is a leap year!")
+    ELSE
+        write("The year ", x, " is not a leap year!")
+    END_IF
+END
+
+ALGORITHM Ticket_pricing
+VAR
+    age : INTEGER
+    price : INTEGER
+BEGIN
+    write("Please enter your age: ")
+    read(age)
+    price = 0
+
+    IF (age <= 12) THEN
+        price = 10
+    ELSEIF (age >= 13 AND age <= 17) THEN
+        price = 15
+    ELSEIF (age >= 18) THEN
+        price = 20
+    ELSE
+        write("Age not entered correctly!")
+    END_IF
+
+    write("Price: ", price, "$")
+END
+
+ALGORITHM fibonacci
+VAR
+    n : INTEGER
+BEGIN
+
+    write("Enter n: ")
+    read(n)
+    write("Fibonacci de (", n, ") = ", fibonacci(n))
+
+END
+
+FUNCTION fibonacci(n)
+IF (n <= 1) THEN
+    RETURN n
+ELSE
+    RETURN fibonacci(n-1) + fibonacci(n-2)
+END_IF
+
+
+
+ALGORITHM Palindrome()
+VAR
+    ch : STRING
+FUNCTION Palindrome(ch : STRING) : BOOLEAN
+    BEGIN
+        IF length(ch) <= 1 THEN
+            RETURN TRUE
+        ELSE IF ch[0] ≠ ch[length(ch) - 1] THEN
+            RETURN FALSE
+        ELSE
+            RETURN isPalindrome(substring(ch, 1, length(ch) - 2))
+        END IF
+    END FUNCTION
+
+BEGIN
+    write("Donner une chaine de caractére :")
+    read(ch)
+    
+    IF Palindrome(ch) THEN
+        write("La chaine est un palindrome.")
+    ELSE
+        write("La chaine n'est pas un palindrome.")
+    END IF
+END
